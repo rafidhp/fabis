@@ -6,7 +6,7 @@ export default function Dashboard() {
       <PageBreadcrumb
         items={[
           {
-            title: 'Dashboard',
+            title: 'FABIS Dashboard',
             href: '/dashboard'
           },
         ]}

@@ -29,8 +29,8 @@ export function NavMain() {
   const { startLoading } = useNavigationLoader();
 
   return (
-    <SidebarMenu className="flex flex-col p-1">
-      <SidebarGroupLabel className="mb-0 pb-0">Platform</SidebarGroupLabel>
+    <SidebarMenu className="flex flex-col p-1 gap-1.5">
+      <SidebarGroupLabel className="mb-2 pb-0">MANAJEMEN PLATFORM</SidebarGroupLabel>
       {items.map((item) => {
         const isActive = pathname === item.url;
 
@@ -47,13 +47,13 @@ export function NavMain() {
             >
               <SidebarMenuButton
                 isActive={isActive}
-                className={`h-10 cursor-pointer ${
+                className={`h-10.5 cursor-pointer mx-1 ${
                   isActive
-                    ? "bg-mist-800! text-white! shadow hover:bg-black hover:text-white"
-                    : "transition hover:bg-zinc-100!"
+                    ? "bg-[#117DA4]! text-white! font-semibold shadow-lg hover:bg-[#117DA4]! hover:text-white"
+                    : "transition hover:bg-[#E9F5FF]!"
                 } `}
               >
-                <item.icon className="size-6 pb-0.5" />
+                <item.icon className="size-6" />
                 <span>{item.title}</span>
               </SidebarMenuButton>
             </Link>
