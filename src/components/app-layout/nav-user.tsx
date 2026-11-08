@@ -86,7 +86,7 @@ export function NavUser() {
           </DropdownMenuTrigger>
 
           <DropdownMenuContent
-            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg font-[poppins]"
+            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
             align="center"
             side={state === "collapsed" ? "left" : "bottom"}
           >
