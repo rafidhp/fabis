@@ -25,7 +25,7 @@ export default function LoginIndex() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center p-4">
+    <div className="flex flex-col items-center justify-center p-4 min-h-130">
       <button
         onClick={handleGoogleLogin}
         disabled={loading}

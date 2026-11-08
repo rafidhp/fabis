@@ -9,67 +9,72 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Beranda", href: "/"},
-    { label: "Tentang Kami", href: "#"},
-    { label: "PPDB", href:"#ppdb"},
-    { label: "Lokasi", href:"#location"}
-  ]
+    { label: "Beranda", href: "/" },
+    { label: "Tentang Kami", href: "#" },
+    { label: "PPDB", href: "#ppdb" },
+    { label: "Lokasi", href: "#location" },
+  ];
 
   return (
-    <nav className="fixed w-screen px-16 max-md:px-4 py-4 max-md:py-2.5 flex justify-between items-center bg-white shadow-sm">
-        <Link href={"/"}>
-          <Image
-            src="/logo-fabis-with-text.jpg"
-            width={200}
-            height={200}
-            alt=""
-          />
-        </Link>
+    <nav className="fixed z-50 flex w-screen items-center justify-between bg-white px-16 py-4 shadow-sm max-md:px-4 max-md:py-2.5">
+      <Link href={"/"}>
+        <Image
+          src="/logo-fabis-with-text.jpg"
+          width={200}
+          height={200}
+          alt=""
+        />
+      </Link>
 
-        <div className="absolute gap-3 text-md font-medium flex left-1/2 -translate-x-1/2 text-dark-greenblue max-md:hidden">
+      <div className="text-md text-dark-greenblue absolute left-1/2 flex -translate-x-1/2 gap-3 font-medium max-md:hidden">
+        {navItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="font-bricolage transition-all duration-200 hover:font-bold"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+
+      <div className="max-md:hidden">
+        <Link
+          href="https://wa.me/6281211066905"
+          className="font-bricolage bg-dark-greenblue hover:bg-greenblue flex cursor-pointer gap-2 rounded-[999] px-8 py-2.5 text-lg text-white inset-shadow-red-100 transition-all duration-200"
+        >
+          Contact
+          <ArrowUpRight />
+        </Link>
+      </div>
+
+      {isOpen && (
+        <div className="text-dark-greenblue absolute top-18 right-0 flex w-full flex-col items-end gap-3.5 bg-white px-4 py-8 text-2xl font-medium">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="font-bricolage hover:font-bold duration-200 transition-all">
-                {item.label}
+              className="font-bricolage transition-all duration-200 hover:font-bold"
+            >
+              {item.label}
             </Link>
           ))}
-        </div>
-
-        <div className="max-md:hidden">
-          <Link href={"#"}
-          className="flex gap-2 font-bricolage bg-dark-greenblue text-lg text-white px-8 py-2.5 rounded-[999] 
-          inset-shadow-red-100 cursor-pointer hover:bg-greenblue duration-200 transition-all">
+          <Link
+            href={"#"}
+            className="font-bricolage bg-dark-greenblue hover:bg-greenblue mt-2 flex cursor-pointer gap-2 rounded-[999] px-8 py-2.5 text-xl text-white inset-shadow-red-100 transition-all duration-200"
+          >
             Contact
             <ArrowUpRight />
           </Link>
         </div>
+      )}
 
-        {isOpen && (
-          <div className="absolute top-18 py-8 flex flex-col w-full items-end right-0 px-4 text-2xl text-dark-greenblue 
-          font-medium gap-3.5 bg-white">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="font-bricolage hover:font-bold duration-200 transition-all">
-                  {item.label}
-              </Link>
-            ))}
-            <Link href={"#"}
-            className="flex gap-2 mt-2 font-bricolage bg-dark-greenblue text-xl text-white px-8 py-2.5 rounded-[999] 
-            inset-shadow-red-100 cursor-pointer hover:bg-greenblue duration-200 transition-all">
-              Contact
-              <ArrowUpRight />
-            </Link>
-          </div>
-        )}
-
-        <button onClick={() => setIsOpen(!isOpen)}
-          className="hidden max-md:block">
-          <Menu />
-        </button>
-      </nav>
-  )
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="hidden max-md:block"
+      >
+        <Menu />
+      </button>
+    </nav>
+  );
 }

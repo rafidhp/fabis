@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useNavigationLoader } from "@/components/app-layout/navigation-loader";
-import { Home, Settings, FolderPen } from "lucide-react";
+import { Home, Settings, FolderPen, Newspaper } from "lucide-react";
 import {
   SidebarGroupLabel,
   SidebarMenu,
@@ -23,6 +23,11 @@ const items = [
     icon: FolderPen,
   },
   {
+    title: "Kelola Berita",
+    url: "/dashboard/news",
+    icon: Newspaper,
+  },
+  {
     title: "Settings",
     url: "/dashboard/settings",
     icon: Settings,
@@ -34,8 +39,10 @@ export function NavMain() {
   const { startLoading } = useNavigationLoader();
 
   return (
-    <SidebarMenu className="flex flex-col p-1 gap-1.5">
-      <SidebarGroupLabel className="mb-2 pb-0">MANAJEMEN PLATFORM</SidebarGroupLabel>
+    <SidebarMenu className="flex flex-col gap-1.5 p-1">
+      <SidebarGroupLabel className="mb-2 pb-0">
+        MANAJEMEN HALAMAN
+      </SidebarGroupLabel>
       {items.map((item) => {
         const isActive = pathname === item.url;
 
@@ -52,9 +59,9 @@ export function NavMain() {
             >
               <SidebarMenuButton
                 isActive={isActive}
-                className={`h-10.5 cursor-pointer mx-1 ${
+                className={`mx-1 h-10.5 cursor-pointer ${
                   isActive
-                    ? "bg-[#117DA4]! text-white! font-semibold shadow-lg hover:bg-[#117DA4]! hover:text-white"
+                    ? "bg-dark-greenblue! hover:bg-dark-greenblue! font-semibold text-white! shadow-lg inset-shadow-sm inset-shadow-indigo-200 hover:text-white"
                     : "transition hover:bg-[#E9F5FF]!"
                 } `}
               >
