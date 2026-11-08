@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useNavigationLoader } from "@/components/app-layout/navigation-loader";
-import { Home, Settings, FolderPen, Newspaper } from "lucide-react";
+import { Home, FolderPen, Newspaper } from "lucide-react";
 import {
   SidebarGroupLabel,
   SidebarMenu,
@@ -27,11 +27,11 @@ const items = [
     url: "/dashboard/news",
     icon: Newspaper,
   },
-  {
-    title: "Settings",
-    url: "/dashboard/settings",
-    icon: Settings,
-  },
+  // {
+  //   title: "Settings",
+  //   url: "/dashboard/settings",
+  //   icon: Settings,
+  // },
 ];
 
 export function NavMain() {
