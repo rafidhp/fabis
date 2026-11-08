@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useNavigationLoader } from "@/components/app-layout/navigation-loader";
-import { Home, Settings } from "lucide-react";
+import { Home, Settings, FolderPen } from "lucide-react";
 import {
   SidebarGroupLabel,
   SidebarMenu,
@@ -16,6 +16,11 @@ const items = [
     title: "Dashboard",
     url: "/dashboard",
     icon: Home,
+  },
+  {
+    title: "Kelola Informasi Website",
+    url: "/dashboard/information",
+    icon: FolderPen,
   },
   {
     title: "Settings",
